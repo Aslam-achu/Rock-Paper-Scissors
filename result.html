@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1>RESULT</h1>
+    </header>
+    <div class="video">
+        <video id="myvd" src="🎉 Party popper effect 🎵 - Dark killer gaming         10M views (1080p, h264).mp4" autoplay muted="false" loop playsinline></video>
+        <div class="overlay-content">
+            <div class="nd2">
+                <h1 id="res"></h1>
+            </div>
+            <div class="nd1">
+                <a id="start">
+                    <button class="but" onclick="start();">
+                        Restart
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let count = localStorage.getItem('schor');
+    let ccount = localStorage.getItem('schor1');
+    const result = document.getElementById('res');
+    if (count > ccount) {
+        result.textContent = "You Won"
+    }
+    else if (count < ccount) {
+        result.textContent = "Computer Won"
+    }
+    else {
+        result.textContent = "Tie"
+    }
+    function start() {
+        window.location.href = "start.html";
+    }
+</script>
+
+</html>

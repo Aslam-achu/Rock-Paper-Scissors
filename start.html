@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header"><h1>ROCK PAPER SCISSORS</h1></header>
+    <div class="nd">
+        <h1>How Many Rounts You Want :</h1>
+        <input type="text" id="round">
+    </div>
+    <div class="nd1">
+    <a href="html.html">
+    <button class="but" onclick="start();">Start</button>
+    </a>
+    </div>
+    <script>
+        function start(){
+        let n = document.getElementById("round").value;
+        localStorage.setItem("number", n);
+        window.location.href = "html.html";
+        }
+    </script>
+</body>
+</html>

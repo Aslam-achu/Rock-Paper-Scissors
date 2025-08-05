@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ROCK PAPER SCISSORS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header"><h1>ROCK PAPER SCISSORS</h1></header>
+    <div class="div1">
+      <h2>Your Score:<span id="countDisplay">0</span></h2>
+      <h2>Computer Score:<span id="countDisplay1">0</span></h2>
+   </div>
+    <div class="div">
+    <button class ="boton" onclick="
+        a=1;
+        index=index+1;
+        show();
+        incrementCount1();
+        let cmove=rpc();
+        let result='';
+        if(cmove=='Rock'){
+           result='You are Tie';
+        }
+        else if(cmove=='Papper'){
+           incrementCount2();
+           result='Computer Won';
+        }
+        else if(cmove=='Scissors'){
+           result='You Won';
+           incrementCount();
+        }"
+    >Rock</button>
+
+    <button class ="boton" onclick="
+        index=index+1;
+        a=2;
+        show();
+        incrementCount1();
+        let cmove1=rpc();
+        let result1='';
+        if(cmove1=='Rock'){
+           result1='You Won';
+           incrementCount();
+        }
+        else if(cmove1=='Papper'){
+           result1='You are Tie';
+        }
+        else if(cmove1=='Scissors'){
+           incrementCount2();
+           result1='Computer Won';
+        }"
+    >Papper</button>
+    
+    <button class ="boton" onclick="
+        index=index+1;
+        a=3;
+        show();
+        incrementCount1();
+        let cmove2=rpc();
+        let result2='';
+        if(cmove2=='Rock'){
+           incrementCount2();
+           result2='Computer Won';
+        }
+        else if(cmove2=='Papper'){
+           result2='You Won';
+           incrementCount();
+        }
+        else if(cmove2=='Scissors'){
+           result2='You are Tie';
+        }"
+    >Scissors</button>
+    </div>
+    <div class="div3">
+      <h2>You</h2>
+      
+      <h2>Computer</h2>
+      
+    </div>
+    <div class="img">
+      <img id="img" src="" alt="">
+      <img id="img1" src="" alt="">
+    </div>
+    <script>
+      
+      let a=0;
+      function show(){
+         if(a==1){
+            const img=document.getElementById("img").src="rock.png"
+         }
+         else if(a==2){
+            const img=document.getElementById("img").src="papper.png"
+         }
+         else if(a==3){
+            const img=document.getElementById("img").src="sis.png"
+         }
+
+      }
+      let index=1;
+      let ccount=0;
+      let count = 0;
+        const countDisplayElement = document.getElementById("countDisplay");
+        const countDisplayElement1 = document.getElementById("countDisplay1");
+        
+        function incrementCount2() {
+            ccount++;
+            countDisplayElement1.textContent = ccount;
+        }
+        function incrementCount() {
+            count++;
+            countDisplayElement.textContent = count; 
+        }
+        function incrementCount1() {
+            countDisplayElement1.textContent = ccount;
+            countDisplayElement.textContent = count;
+            if(index>score)
+            {
+               localStorage.setItem('schor',count);
+               localStorage.setItem('schor1',ccount);
+               index=1;
+               window.location.href="result.html"
+            }
+        }
+     function rpc(){
+        let n= Math.random()
+        if(n>0 && n<1/3){
+            const img=document.getElementById("img1").src="rock.png"
+            return 'Rock';
+        }
+        else if(n>=1/3 && n<2/3){
+            const img=document.getElementById("img1").src="papper.png"
+            return 'Papper';
+        }
+        else {
+            const img=document.getElementById("img1").src="sis.png"
+            return 'Scissors';
+        }
+     }
+     const score = localStorage.getItem("number");
+    </script>
+</body>
+</html>
